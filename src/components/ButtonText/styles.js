@@ -12,7 +12,6 @@ export const Container = styled.button`
 
   > svg {
     margin-right: 0.8rem;
-    padding: 0.2rem 0;
     height: 3rem;
     width: 5rem;
   }
