@@ -15,16 +15,15 @@ export const Container = styled.div`
   display: grid;
   grid-template-rows: 10.4rem auto 7.2rem;
   grid-template-areas:
-  'header'
-  'content' 
-  'footer';
+    'header'
+    'content'
+    'footer';
 `
 
 export const Content = styled.div`
   grid-area: 'content';
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
 
   min-width: 35rem;
@@ -40,6 +39,7 @@ export const Content = styled.div`
   }
 
   .background {
+    display: flex;
     padding: 2.6rem 5.4rem 0;
     width: 112rem;
     height: 26rem;

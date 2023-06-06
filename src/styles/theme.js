@@ -11,6 +11,7 @@ export default {
     GRAY_100: '#E1E1E6',
     GRAY_200: '#C4C4C4',
     GRAY_300: '#7C7C8A',
+    GRAY_LOGO: '#4D585E',
 
     LOGO_COLOR: '#065E7C',
     VALUE_TEXT: '#5baab2',
