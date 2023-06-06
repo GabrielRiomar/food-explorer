@@ -1,27 +1,33 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
 
   width: 100%;
-  min-width: 35rem;
+
   height: 100vh;
 
   overflow: auto;
-  overflow: overlay;
+  overflow: overlay; */
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: 10.4rem auto 7.2rem;
+  grid-template-areas:
+  'header'
+  'content' 
+  'footer';
 `
 
 export const Content = styled.div`
-  grid-area: content;
-`
-
-export const Banner = styled.div`
+  grid-area: 'content';
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
+  min-width: 35rem;
   padding: 3.2rem 12.4rem 0;
 
   font-family: 'Poppins', sans-serif;
