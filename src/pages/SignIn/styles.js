@@ -51,7 +51,7 @@ export const Container = styled.div`
 export const Form = styled.form`
   padding: 0 13.6rem;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_200};
-  min-width: 48rem;
+  min-width: 52rem;
   min-height: 54rem;
   border-radius: 1.6rem;
   gap: 3.2rem;
