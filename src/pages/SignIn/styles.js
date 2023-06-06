@@ -49,7 +49,7 @@ export const Container = styled.div`
   }
 `
 export const Form = styled.form`
-  padding: 0 6.4rem;
+  padding: 0 13.6rem;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_200};
   min-width: 48rem;
   min-height: 54rem;

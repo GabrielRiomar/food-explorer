@@ -22,7 +22,7 @@ export function SignUp(){
       </div>
 
       <Form>
-        <h1>Create your account</h1>
+        <h2>Create your account</h2>
         
         <Input
           placeholder="Name"
@@ -30,7 +30,7 @@ export function SignUp(){
         />
 
         <Input
-          placeholder="E-mail"
+          placeholder="email@email.com"
           type="text"
         />
 

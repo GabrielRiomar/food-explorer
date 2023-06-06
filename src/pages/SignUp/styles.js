@@ -54,6 +54,7 @@ export const Form = styled.form`
   min-width: 48rem;
   min-height: 54rem;
   border-radius: 1.6rem;
+  gap: 3.2rem;
 
   display: flex;
   align-items: center;
@@ -69,7 +70,6 @@ export const Form = styled.form`
   > h2 {
     font-size: 2.4rem;
     color: ${({ theme }) => theme.COLORS.WHITE_100};
-    margin: 4.8rem 0;
   }
 
   > p {
@@ -81,6 +81,5 @@ export const Form = styled.form`
   > a {
     color: ${({ theme }) => theme.COLORS.WHITE_100};
     font-size: 1.6rem;
-    margin-top: 12.4rem;
   }
 `
