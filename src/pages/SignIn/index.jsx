@@ -23,31 +23,31 @@ export function SignIn(){
       </div>
 
         <Form>
-          <h2>Faça login</h2>
+          <h2>Login</h2>
 
           <Input 
             title="Email"
-            type="email" 
-            label="email"
-            placeholder = "email@email.com" 
+            type="email"
+            label="Email"
+            placeholder = "Example: email@email.com" 
             required
           />
 
           <Input 
-            title="Senha"
-            label="password"
+            title="Password"
+            label="Password"
             type="password" 
-            placeholder = "No mínimo 6 caracteres"
+            placeholder = "At least 6 characters"
             minLength = "6" 
             required 
           />
 
           <Button 
-            title="Entrar"
+            title="Sign-in"
           />
             
           <Link to='/register'>
-            Criar uma conta
+            Create an Account
           </Link>
 
         </Form>

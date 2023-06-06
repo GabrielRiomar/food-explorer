@@ -81,6 +81,5 @@ export const Form = styled.form`
   > a {
     color: ${({ theme }) => theme.COLORS.WHITE_100};
     font-size: 1.6rem;
-    margin-top: 3.2rem;
   }
 `
