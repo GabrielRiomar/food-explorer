@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.footer`
   grid-area: 'footer';
-  height: 13.66rem;
+  height: 7.7rem;
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_HEADER};
   border: 2px solid transparent;
@@ -20,14 +20,13 @@ export const Brand = styled.div`
   align-items: center;
   gap: 1.2rem;
 
-  color: ${({ theme }) => theme.COLORS.WITHE_200};
+  color: ${({ theme }) => theme.COLORS.GRAY_LOGO};
 
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 3rem;
 
   > svg {
-    animation: fade 5s infinite;
     width: 5rem;
     height: 5rem;
   }
@@ -38,7 +37,7 @@ export const Copyright = styled.div`
   align-items: center;
   gap: 1.2rem;
 
-  color: ${({ theme }) => theme.COLORS.WITHE_200};
+  color: ${({ theme }) => theme.WHITE_100};
 
   font-size: 1.4rem;
   font-weight: 400;
