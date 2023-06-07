@@ -28,28 +28,7 @@ export function Home(){
               </div>
             </section>
 
-          <div>
-            <div className="swipe-container">
-
-              <div className="swipe-content">
-
-                <div className="card-wrapper">
-
-                  <div className="card">
-
-                    <div className="image-content">
-                      
-                      <span className="overlay"></span>
-                      <div className="card-image">
-                        <img src="../../assets/icon.svg" className="card-img" />
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </Content>
 
       <Footer/>
