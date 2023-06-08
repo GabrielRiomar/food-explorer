@@ -17,6 +17,7 @@ export const Container = styled(Link)`
   justify-content: center;
   gap: 0.8rem;
   font-size: 1.4rem;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
 
   > svg {

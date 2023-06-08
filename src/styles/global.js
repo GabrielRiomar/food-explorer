@@ -22,6 +22,11 @@ export default createGlobalStyle`
     outline: none;
   }
 
+  h2, span{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+
   a{
     text-decoration: none;
   }
