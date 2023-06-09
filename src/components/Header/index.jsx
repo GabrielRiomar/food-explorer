@@ -1,11 +1,26 @@
-import { Input } from "../Input";
+//Import styles
 import { Container, Search, Brand} from "./styles";
-import { Link } from 'react-router-dom';
-import { FiSearch } from "react-icons/fi"
+//Import components
 import { ButtonHeader } from '../ButtonHeader'
 import { ButtonText } from '../ButtonText'
+import { Link } from 'react-router-dom';
+//Import react icons
+import { FiSearch } from "react-icons/fi"
+//Import Hook, API and Navigate for logout function
+import { useAuth } from '../../hooks/auth';
+import { api } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 export function Header(){
+  const { signOut, user } = useAuth()
+
+  const navigate = useNavigate()
+
+  function handleSignOut(){
+    navigate("/")
+    signOut()
+  }
+
   return(
     <Container>
       <Brand>
@@ -19,7 +34,7 @@ export function Header(){
         <input type="text" placeholder="Search"/>
       </Search>
       <ButtonHeader title="Pedidos (0)"/>
-      <ButtonText/>
+      <ButtonText onClick={handleSignOut}/>
     </Container>
   )
 }

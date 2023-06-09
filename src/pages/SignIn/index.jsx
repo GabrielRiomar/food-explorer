@@ -1,14 +1,27 @@
-import { Container, Form} from "./styles"
+import { useState } from "react"
+//Import styles.js
+import { Container, Form } from "./styles"
 
-import {  FiMail, FiLogIn, FiLock } from "react-icons/fi"
-
+//Import Link
 import { Link } from 'react-router-dom'
 
+//Import components
 import { Input } from "../../components/Input"
-
 import { Button } from "../../components/Button"
 
+//Import Hook
+import { useAuth } from "../../hooks/auth"
+
 export function SignIn(){
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const { signIn } = useAuth()
+
+  function handleSignIn(){
+    signIn({ email, password })
+  }
+
   return (
     <Container>
 
@@ -29,7 +42,8 @@ export function SignIn(){
             title="Email"
             type="email"
             label="Email"
-            placeholder = "Example: email@email.com" 
+            placeholder = "Example: email@email.com"
+            onChange={e => setEmail(e.target.value)}
             required
           />
 
@@ -39,11 +53,13 @@ export function SignIn(){
             type="password" 
             placeholder = "At least 6 characters"
             minLength = "6" 
+            onChange={e => setPassword(e.target.value)}
             required 
           />
 
           <Button 
             title="Sign-in"
+            onClick={handleSignIn}
           />
             
           <Link to='/register'>
