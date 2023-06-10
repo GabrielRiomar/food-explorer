@@ -6,6 +6,7 @@ import { ButtonText } from '../ButtonText'
 import { Link } from 'react-router-dom';
 //Import react icons
 import { FiSearch } from "react-icons/fi"
+import { FiLogOut } from 'react-icons/fi'
 //Import Hook, API and Navigate for logout function
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
@@ -34,7 +35,7 @@ export function Header(){
         <input type="text" placeholder="Search"/>
       </Search>
       <ButtonHeader title="Pedidos (0)"/>
-      <ButtonText onClick={handleSignOut}/>
+      <ButtonText icon={FiLogOut} onClick={handleSignOut}/>
     </Container>
   )
 }
