@@ -2,14 +2,18 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
 
   width: 100%;
-  border-radius: 5px;
+  border-radius: 0.5rem;
 
   color: ${({ theme }) => theme.COLORS.GRAY_200};
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
 
+  label {
+    margin-bottom: 1.6rem;
+  }
   input {
     width: 100%;
     height: 4.8rem;
@@ -19,7 +23,7 @@ export const Container = styled.div`
     border-radius: 0.5rem;
 
     color: ${({ theme }) => theme.COLORS.GRAY_200};
-    background: transparent;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
 
     &:placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_200};
@@ -27,8 +31,7 @@ export const Container = styled.div`
   }
 
   input:focus {
-    -webkit-box-shadow: 0px 0px 10px 5px #193746;
-    box-shadow: 0px 0px 10px 5px #193746;
+    border: 1px solid #ffffff;
   }
 
   > svg {

@@ -14,12 +14,6 @@ export const Container = styled.div`
   margin-bottom: 0.8rem;
   border-radius: 1rem;
 
-  > label {
-    font-size: 1.6rem;
-    font-weight: 400;
-    margin-bottom: 0.8rem;
-  }
-
   > input {
     display: flex;
     height: 5.5rem;
