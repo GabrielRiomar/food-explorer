@@ -6,7 +6,7 @@ import { Container, Form } from "./styles"
 import { Link } from 'react-router-dom'
 
 //Import components
-import { Input } from "../../components/Input"
+import { InputSign } from "../../components/InputSign"
 import { Button } from "../../components/Button"
 
 //Import Hook
@@ -38,7 +38,7 @@ export function SignIn(){
         <Form>
           <h2>Login</h2>
 
-          <Input 
+          <InputSign 
             title="Email"
             type="email"
             label="Email"
@@ -47,7 +47,7 @@ export function SignIn(){
             required
           />
 
-          <Input 
+          <InputSign 
             title="Password"
             label="Password"
             type="password" 

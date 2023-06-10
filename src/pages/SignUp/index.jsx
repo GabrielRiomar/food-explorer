@@ -4,7 +4,7 @@ import { Container, Form } from "./styles"
 import{api} from '../../services/api'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { Input } from "../../components/Input"
+import { InputSign } from "../../components/InputSign"
 
 import { Button } from "../../components/Button"
 
@@ -50,19 +50,19 @@ export function SignUp(){
       <Form>
         <h2>Create your account</h2>
         
-        <Input
+        <InputSign
           placeholder="Username"
           type="text"
           onChange={e => setName(e.target.value)}
         />
 
-        <Input
+        <InputSign
           placeholder="email@email.com"
           type="text"
           onChange={e => setEmail(e.target.value)}
         />
 
-        <Input
+        <InputSign
           placeholder="Password"
           type="password"
           onChange={e => setPassword(e.target.value)}

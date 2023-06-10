@@ -16,13 +16,21 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.COLORS.GRAY_100};
 }
 
-  border-style, input, textarea, button, h1{
+  border-style, input, textarea, button, h1, label, p{
     font-family: 'Roboto Slab', sans-serif;
     font-size: 1.6rem;
     outline: none;
   }
 
-  h2, span{
+  label{
+    margin-bottom: 0.8rem;
+  }
+
+  p{
+    margin-bottom: 1.6rem
+  }
+
+  h1, h2, span{
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
   }
