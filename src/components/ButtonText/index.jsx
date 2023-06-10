@@ -1,10 +1,11 @@
 import { Container } from './styles'
-import { FiLogOut } from 'react-icons/fi'
 
-export function ButtonText({title, ...rest}){
+
+export function ButtonText({icon: Icon, title, ...rest}){
   return(
     <Container type="button" {...rest}>
-      <FiLogOut/>{title}
+      {Icon && <Icon size={20} />}
+      {title}
     </Container>
   )
 }

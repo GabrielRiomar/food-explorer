@@ -5,13 +5,13 @@ export const Container = styled.button`
   color: ${({ theme }) => theme.COLORS.WHITE_100};
 
   border: none;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
 
   display: flex;
   align-items: center;
 
   > svg {
-    margin-right: 0.8rem;
+    /* margin-right: 0.8rem; */
     height: 3rem;
     width: 5rem;
   }
