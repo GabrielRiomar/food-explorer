@@ -1,39 +1,37 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100%;
-
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: center;
-  /* justify-content: center; */
+  align-items: center;
 
-  color: ${({ theme }) => theme.COLORS.WHITE_100};
+  width: 100%;
+  border-radius: 5px;
 
-  margin-bottom: 0.8rem;
-  border-radius: 1rem;
+  color: ${({ theme }) => theme.COLORS.GRAY_200};
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
 
-  > label {
-    font-size: 1.6rem;
-    font-weight: 400;
-    margin-bottom: 0.8rem;
+  input {
+    width: 100%;
+    height: 4.8rem;
+
+    padding: 1.6rem 1.4rem;
+    border: none;
+    border-radius: 0.5rem;
+
+    color: ${({ theme }) => theme.COLORS.GRAY_200};
+    background: transparent;
+
+    &:placeholder {
+      color: ${({ theme }) => theme.COLORS.GRAY_200};
+    }
   }
 
-  > input {
-    display: flex;
-    height: 5.5rem;
-    width: 100%;
+  input:focus {
+    -webkit-box-shadow: 0px 0px 10px 5px #193746;
+    box-shadow: 0px 0px 10px 5px #193746;
+  }
 
-    padding: 1.9rem;
-    color: ${({ theme }) => theme.COLORS.WHITE_100};
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-
-    ::placeholder {
-      color: ${({ theme }) => theme.COLORS.GRAY_300};
-      /* padding: 1.6rem 0; */
-    }
+  > svg {
+    margin-left: 1.4rem;
   }
 `
