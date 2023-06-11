@@ -11,11 +11,6 @@ export const Container = styled.div`
     'content'
     'footer';
 
-  /* > main {
-    grid-area: content;
-    overflow-y: auto;
-  } */
-
   .tags {
     display: flex;
     justify-content: space-between;
@@ -94,7 +89,15 @@ export const Form = styled.form`
     padding: 1.2rem;
     font-size: 1.6rem;
     line-height: 2.6rem;
+    color: ${({ theme }) => theme.COLORS.WHITE_100};
+  }
+
+  .category select option.default {
     color: ${({ theme }) => theme.COLORS.GRAY_300};
+  }
+
+  .category select option {
+    color: ${({ theme }) => theme.COLORS.WHITE_100};
   }
 
   .dishImage {
@@ -128,22 +131,30 @@ export const Form = styled.form`
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    width: 100%;
 
-    height: auto;
-    gap: 2.4rem;
+    height: 3rem;
+    gap: 1.2rem;
     padding: 0.8rem;
 
     border-radius: 0.8rem;
     margin-bottom: 3.2rem;
-    border: 1px solid white;
+    border: none;
   }
 
-  .ingredientsTag {
-    justify-content: space-between;
+  .ingredientsPricing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3.2rem;
   }
 
   .price {
     max-width: 15rem;
+  }
+
+  .buttons {
+    display: flex;
+    max-width: 17rem;
   }
 
   @media only screen and (min-width: 768px) {
@@ -178,7 +189,7 @@ export const Form = styled.form`
       border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     }
 
-    .ingredientsTag {
+    .ingredientsPricing {
       display: flex;
       justify-content: space-between;
       gap: 3.2rem;

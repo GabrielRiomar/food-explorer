@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  grid-area: 'content';
   display: flex;
   flex-direction: column;
 
   width: 100%;
   max-width: 121.2rem;
-  height: 100%;
-  margin: auto;
+  height: 72vh;
+  margin: 4rem auto;
   padding: 3.5rem 4rem;
-  overflow: auto;
-  overflow: overlay;
+  /* overflow: auto;
+  overflow: overlay; */
 
   .header {
     flex-direction: row;
@@ -41,10 +42,13 @@ export const Container = styled.div`
     align-items: center;
     gap: 2rem;
 
+    h2,
+    h3 {
+      font-size: 3rem;
+    }
     span {
-      font-weight: 700;
-      font-size: 5rem;
-      color: ${({ theme }) => theme.COLORS.BLUE};
+      font-size: 6rem;
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
     }
   }
 `
