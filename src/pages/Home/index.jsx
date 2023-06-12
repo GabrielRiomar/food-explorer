@@ -10,6 +10,7 @@ import { Link } from "react-router-dom"
 import Swiper from 'swiper';
 // import Swiper styles
 import 'swiper/css'
+import { CardProfile } from "../../components/CardProfile"
 
 export function Home(){
   return(
@@ -28,7 +29,9 @@ export function Home(){
               </div>
             </section>
 
-          
+        <CardProfile title="Dish Name"/>
+        <CardProfile title="Drink Name"/>
+        <CardProfile title="Dessert Name"/>
         </Content>
 
       <Footer/>

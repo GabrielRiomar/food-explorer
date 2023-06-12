@@ -111,8 +111,8 @@ export function NewDish(){
   return(
     <Container>
       <Header/>
-      {/* {
-        user.isAdmin ? */}
+      {
+        user.isAdmin ?
       <Content>
         <Form>
           <header>
@@ -213,9 +213,9 @@ export function NewDish(){
         </div>
         </Form>
       </Content>
-      {/* :
+      :
       <PageError401 />
-    } */}
+    }
       <Footer/>  
     </Container>
   )
