@@ -68,18 +68,17 @@ export const Content = styled.div`
   }
 `
 
-export const AddCart = styled.div`
-  display: flex;
-  align-items: center;
+// export const AddCart = styled.div`
+//   display: flex;
+//   align-items: center;
 
-  width: 100%;
+//   width: 100%;
 
-  > span {
-    font-family: 'Roboto', sans-serif;
-    font-size: 2rem;
-  }
+//   > span {
+//     font-size: 2rem;
+//   }
 
-  > button {
-    font-size: 1.4rem;
-  }
-`
+//   > button {
+//     font-size: 1.4rem;
+//   }
+// `

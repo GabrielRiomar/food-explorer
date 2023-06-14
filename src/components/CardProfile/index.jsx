@@ -1,10 +1,11 @@
 //Import styles.js
-import { Container, AddCart, Content } from './styles'
+import { Container, Content } from './styles'
 //Import useState
 import { useState, useFavorite } from 'react'
 //Import components
 import { Button } from '../Button'
 import { ButtonText } from '../ButtonText'
+import { AddCart } from '../AddCart'
 //Import icons
 import { AiOutlinePlus, AiOutlineMinus, AiFillHeart, AiOutlineHeart, AiOutlineEdit, AiOutlineRight } from 'react-icons/ai'
 import {CgDetailsMore} from 'react-icons/cg'
@@ -47,28 +48,30 @@ export function CardProfile({title, data, ...rest}){
       {
         user.isAdmin ?
 
-        <Content>
-      <button 
-        className="favButton"
-      >
-        <AiOutlineEdit/>
-      </button>
-      <div className='cardData'>
-        <img src={imagePlaceholder} alt="Plate Preview" />
-        
-        
-          <div className='teste'>
-          <Link to={`/details/1`}>
-            <h2>
-              {title}
-              <CgDetailsMore/> 
-            </h2>
-          </Link>
-          <p>Alguma descrição medianamente longa para esse prato</p>
+      <Content>
+        {/* <Link to={`/edit`}> */}
+          <button 
+            className="favButton"
+          >
+            <AiOutlineEdit/>
+          </button>
+        {/* </Link> */}
+        <div className='cardData'>
+          <img src={imagePlaceholder} alt="Plate Preview" />
+          
+          
+            <div className='teste'>
+            <Link to={`/details`}>
+              <h2>
+                {title}
+                <CgDetailsMore/> 
+              </h2>
+            </Link>
+            <p>Alguma descrição medianamente longa para esse prato</p>
 
-          <h1>R$ 10,00</h1>
-          </div>
-      </div>
+            <h1>R$ 10,00</h1>
+            </div>
+        </div>
       </Content> 
         
         :
@@ -92,9 +95,9 @@ export function CardProfile({title, data, ...rest}){
           <h1>R$ 10,00</h1>
           </div>
         
+        <AddCart/>
         
-        
-        <AddCart>
+        {/* <AddCart>
           <ButtonText 
             icon={AiOutlineMinus}
             onClick={minusQuantity}
@@ -108,7 +111,7 @@ export function CardProfile({title, data, ...rest}){
           />
           
           <Button title='Add to Cart'/>
-        </AddCart>
+        </AddCart> */}
       </div>
       </Content> 
       } 
