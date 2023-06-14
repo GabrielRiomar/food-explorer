@@ -30,10 +30,10 @@ export function CardSlider({ title, children }) {
               slidesPerView: 3,
               spaceBetween: 40,
           },
-          "@1.20": {
-              slidesPerView: 4,
-              spaceBetween: 80,
-          },
+          // "@1.20": {
+          //     slidesPerView: 4,
+          //     spaceBetween: 80,
+          // },
           }
   }
 

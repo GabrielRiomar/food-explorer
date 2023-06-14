@@ -16,7 +16,7 @@ export const Container = styled(Link)`
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
 
