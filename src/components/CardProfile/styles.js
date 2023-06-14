@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   position: relative;
+`
+
+export const Content = styled.div`
+  position: relative;
   width: 30rem;
   height: 46rem;
 
@@ -32,6 +36,14 @@ export const Container = styled.div`
     h2 {
       font-size: 2.4rem;
       margin-bottom: 1.5rem;
+      gap: 1rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+      text-decoration: none;
     }
 
     p {
@@ -65,5 +77,9 @@ export const AddCart = styled.div`
   > span {
     font-family: 'Roboto', sans-serif;
     font-size: 2rem;
+  }
+
+  > button {
+    font-size: 1.4rem;
   }
 `

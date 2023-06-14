@@ -1,75 +1,57 @@
+//Import stylesjs
 import { Container, Content } from "./styles";
-
-// Import SwiperJS
+//Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
+// Import modules according to the styles
+import { Navigation, Pagination } from 'swiper';
+//Import Swiper styles
+import 'swiper/css';
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// Import modules according to the styles
-import { Navigation, Pagination } from "swiper";
 
-export function Carousel({children}) {
 
-    return (
-        <Container>
-            <Content>
+export function CardSlider({ title, children }) {
+  const settings = {
+    navigation: true,
+    loop: true,
+    // loopFillGroupWithBlank: true,
+    grabCursor: true,
+    breakpoints:{
+          "@0.00": {
+              slidesPerView: 1,
+              spaceBetween: 10,
+          },
+          "@0.75": {
+              slidesPerView: 2,
+              spaceBetween: 20,
+          },
+          "@1.00": {
+              slidesPerView: 3,
+              spaceBetween: 40,
+          },
+          "@1.20": {
+              slidesPerView: 4,
+              spaceBetween: 80,
+          },
+          }
+  }
 
-                <Swiper
-                    grabCursor={true}
-                    loop={true}
-                    loopFillGroupWithBlank={true}
-                    breakpoints={{
-                        "@0.00": {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        },
-                        "@0.75": {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        "@1.00": {
-                            slidesPerView: 3,
-                            spaceBetween: 40,
-                        },
-                        "@1.20": {
-                            slidesPerView: 4,
-                            spaceBetween: 130,
-                        },
-                    }}
-                    navigation={true}
-                    modules={[Navigation]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>{children}</SwiperSlide>
+  if (children.length === 1) {
+    settings.breakpoints["@0.00"].slidesPerView = 1;
+  }
 
-                </Swiper>
-
-            </Content>
-        </Container>
+  return (
+      <Container>
+        <h3>{title}</h3>
+        <Content>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            {...settings}
+          >
+              {children}
+          </Swiper>
+        </Content>
+      </Container>
     );
 }
-
-<div>
-            <div className="slide-container">
-
-              <div className="slide-content">
-
-                <div className="card-wrapper">
-
-                  <div className="card">
-
-                    <div className="image-content">
-                    
-                      <div className="card-image">
-                        <img src="../../assets/plate-img/Mask group.png" className="card-img" />
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
