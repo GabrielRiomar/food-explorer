@@ -68,9 +68,14 @@ export const Search = styled.div`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
   color: ${({ theme }) => theme.COLORS.WHITE_100};
 
+  /* :focus {
+    border: 1px solid #ffffff;
+  } */
+
   > input {
     width: 100%;
     display: flex;
+    align-items: center;
     height: 5.6rem;
     font-size: 1.6rem;
 

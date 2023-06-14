@@ -7,11 +7,9 @@ export const Container = styled.div`
 
   width: 100%;
   max-width: 121.2rem;
-  height: 72vh;
+  height: 100vh;
   margin: 4rem auto;
   padding: 3.5rem 4rem;
-  /* overflow: auto;
-  overflow: overlay; */
 
   .header {
     flex-direction: row;
@@ -27,7 +25,7 @@ export const Container = styled.div`
   .content {
     align-items: center;
     text-align: center;
-    margin-top: 6rem;
+    margin: 6rem;
   }
 
   img {

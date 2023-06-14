@@ -32,9 +32,10 @@ export function Header(){
       </Brand>
       <Search>
         {<FiSearch size={20}/>}
-        <input type="text" placeholder="Search"/>
+        <input type="text" placeholder="Search">
+        </input>
       </Search>
-      <ButtonHeader title="Pedidos (0)"/>
+      <ButtonHeader title="Cart (0)"/>
       <ButtonText icon={FiLogOut} onClick={handleSignOut}/>
     </Container>
   )

@@ -15,7 +15,7 @@ export function PageError401(){
     const navigate = useNavigate()
 
     function handleGoBack(){
-        navigate("/")
+        navigate(-1)
     }
 
     return(
