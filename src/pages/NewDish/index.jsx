@@ -1,7 +1,7 @@
-//Import useState
-import { useState } from "react"
 //Import styles
 import { Container, Content, Form } from "./styles"
+//Import useState
+import { useState } from "react"
 //Import Components
 import { Header } from "../../components/Header"
 import { Footer } from "../../components/Footer"
@@ -14,15 +14,16 @@ import { PageError401 } from "../../components/PageError401"
 //Import Navigate and API
 import { useNavigate } from "react-router-dom"
 import { api } from "../../services/api"
+import { useAuth } from '../../hooks/auth'
+//Import icons
 import { FiUpload } from "react-icons/fi"
 import { RiArrowLeftSLine } from 'react-icons/ri';
-import {useAuth} from '../../hooks/auth'
 
 
 export function NewDish(){
   const { user } = useAuth()
 
-  const [preview_img, setPreviewImg] = useState(null);
+  const [image, setImage] = useState(null);
   // const [imageName, setImageName] = useState('');
 
   const [name, setName] = useState('')
@@ -43,7 +44,7 @@ export function NewDish(){
   function handleImageChange(e) {
     const file = e.target.files[0];
     if (file) {
-      setPreviewImg(file.name);
+      setImage(file.name);
     }
   };
 
@@ -82,7 +83,7 @@ export function NewDish(){
   setLoading(true);
 
   const formData = new FormData();
-  formData.append("preview_img", preview_img);
+  formData.append("image", image);
   formData.append("name", name);
   formData.append("category", category);
   formData.append("price", price);
@@ -94,7 +95,7 @@ export function NewDish(){
   
   await api
     .post("/manager", formData)
-    .then(alert("Prato adicionado com sucesso!"), navigate("/"))
+    .then(alert("Dish added successfully!"), navigate(-1))
     .catch((error) => {
       if (error.response) {
         alert(error.response.data.message);
@@ -103,8 +104,6 @@ export function NewDish(){
       }
     });  
     setLoading(false);
-    navigate(-1)
-    alert ('Dish added successfully')
   }
     
 
@@ -129,7 +128,7 @@ export function NewDish(){
               <p>Dish Image</p>
               <label htmlFor="image">
                 <FiUpload size={24}/> 
-                {preview_img ? preview_img : 'Select Image'}
+                {image ? image : 'Select Image'}
               </label>
               <Input 
                 type="file"

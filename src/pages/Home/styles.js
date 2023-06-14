@@ -24,7 +24,7 @@ export const Content = styled.main`
     position: relative;
     margin-bottom: 6.2rem;
 
-    > img {
+    img {
       position: absolute;
       top: 1.5rem;
       left: -5rem;
@@ -51,13 +51,13 @@ export const Content = styled.main`
         top: 8.7rem;
         left: 59.7rem;
 
-        > h2 {
+        h2 {
           font-size: 4rem;
           line-height: 5.6rem;
           font-weight: 500;
         }
 
-        > span {
+        span {
           font-size: 1.6rem;
           line-height: 2.2rem;
           font-weight: 400;
@@ -65,8 +65,9 @@ export const Content = styled.main`
       }
     }
   }
-
-
+  .menu {
+    width: 100%;
+  }
   @media (max-width: 768px) {
     max-width: 70rem;
 

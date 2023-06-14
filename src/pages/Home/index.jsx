@@ -3,14 +3,12 @@ import { Container, Content} from "./styles"
 // Components Imports
 import { Header } from "../../components/Header"
 import { Footer } from "../../components/Footer"
+import { CardProfile } from "../../components/CardProfile"
+import { CardSlider } from "../../components/CardSlider"
 // Image Imports
 import bannerIMG from '../../assets/main_image.png'
-import { Link } from "react-router-dom"
-//import Swiper JS
-import Swiper from 'swiper';
-// import Swiper styles
-import 'swiper/css'
-import { CardProfile } from "../../components/CardProfile"
+import { SwiperSlide } from "swiper/react"
+
 
 export function Home(){
   return(
@@ -28,10 +26,50 @@ export function Home(){
                 </div>
               </div>
             </section>
+          <section className='menu'>
+            <CardSlider title="Dishes">
+              <SwiperSlide>
+              <CardProfile title="Dish Name1"/>
+              </SwiperSlide>
+              <SwiperSlide>
+              <CardProfile title="Dish Name2"/>
+              </SwiperSlide>
+              <SwiperSlide>
+              <CardProfile title="Dish Name3"/>
+              </SwiperSlide>
+              <SwiperSlide>
+              <CardProfile title="Dish Name4"/>
+              </SwiperSlide>
+              <SwiperSlide>
+              <CardProfile title="Dish Name5"/>
+              </SwiperSlide>
+              <SwiperSlide>
+              <CardProfile title="Dish Name6"/>
+              </SwiperSlide>
 
-        <CardProfile title="Dish Name"/>
-        <CardProfile title="Drink Name"/>
-        <CardProfile title="Dessert Name"/>
+            </CardSlider>
+
+            <CardSlider title="Drinks">
+              <SwiperSlide>
+                <CardProfile title="Drink Name"/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <CardProfile title="Drink Name"/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <CardProfile title="Drink Name"/>
+              </SwiperSlide>
+              <SwiperSlide>
+                <CardProfile title="Drink Name"/>
+              </SwiperSlide>
+            </CardSlider>
+
+            <CardSlider title="Desserts">
+              <SwiperSlide>
+                <CardProfile title="Dessert Name"/>
+              </SwiperSlide>
+            </CardSlider>
+          </section>
         </Content>
 
       <Footer/>
