@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 export const Container = styled.footer`
   grid-area: 'footer';
@@ -30,14 +29,16 @@ export const Brand = styled.div`
     width: 5rem;
     height: 5rem;
   }
+  > img {
+    width: 5rem;
+    height: 5rem;
+  }
 `
 
 export const Copyright = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
-
-  color: ${({ theme }) => theme.WHITE_100};
 
   font-size: 1.4rem;
   font-weight: 400;

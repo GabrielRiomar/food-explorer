@@ -15,19 +15,17 @@ export const Container = styled.header`
   margin: 0 auto;
 `
 
-export const Brand = styled.div`
+export const Brand = styled(Link)`
   display: flex;
   align-items: center;
   gap: 1.2rem;
   animation: fadeIn 0.5s;
 
-  color: ${({ theme }) => theme.COLORS.WITHE_200};
-
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 3rem;
 
-  > svg {
+  > img {
     animation: fade 5s infinite;
     width: 5rem;
     height: 5rem;

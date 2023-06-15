@@ -1,14 +1,13 @@
 import { Container } from './styles'
-import { CiReceipt } from 'react-icons/ci'
 
-export function ButtonHeader({title, ...rest}){
+export function ButtonHeader({icon: Icon, title, link, ...rest}){
     return(
         <Container
-            to='#' 
+            to={link}
             {...rest}
         >
-            <CiReceipt/>
-            {title}
+                {Icon && <Icon size={20} />}
+                {title}
         </Container>
     )
 }

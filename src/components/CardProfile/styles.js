@@ -17,7 +17,7 @@ export const Content = styled.div`
   background-color: transparent;
   border-radius: 0.8rem;
 
-  .favButton {
+  .svgButton {
     position: absolute;
     top: 1.2rem;
     right: 2rem;

@@ -4,7 +4,6 @@ import { Container, Content } from './styles'
 import { useState, useFavorite } from 'react'
 //Import components
 import { Button } from '../Button'
-import { ButtonText } from '../ButtonText'
 import { AddCart } from '../AddCart'
 //Import icons
 import { AiOutlinePlus, AiOutlineMinus, AiFillHeart, AiOutlineHeart, AiOutlineEdit, AiOutlineRight } from 'react-icons/ai'
@@ -49,13 +48,13 @@ export function CardProfile({title, data, ...rest}){
         user.isAdmin ?
 
       <Content>
-        {/* <Link to={`/edit`}> */}
           <button 
-            className="favButton"
+            className="svgButton"
           >
-            <AiOutlineEdit/>
+            <Link to='/edit'>
+              <AiOutlineEdit/>
+            </Link>
           </button>
-        {/* </Link> */}
         <div className='cardData'>
           <img src={imagePlaceholder} alt="Plate Preview" />
           
@@ -78,7 +77,7 @@ export function CardProfile({title, data, ...rest}){
       
       <Content>
       <button 
-        className="favButton"
+        className="svgButton"
         onClick={handleFavoriteClick}
       >
         {isFavorite ? <AiFillHeart color="#750310" /> : <AiOutlineHeart />}
