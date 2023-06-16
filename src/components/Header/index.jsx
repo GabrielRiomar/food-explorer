@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import Icon from '../../assets/images/icon.svg'
 import { useState } from 'react'
 
-export function Header(){
+export function Header({ search }){
   const { signOut, user } = useAuth()
   const [cart, setCart] = useState(0)
 
@@ -32,7 +32,13 @@ export function Header(){
       </Brand>
       <Search>
         {<FiSearch size={20}/>}
-        <input type="text" placeholder="Search">
+        <input 
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Search"
+          onChange={e => { search(e.target.value) }}
+        >
         </input>
       </Search>
       {
@@ -40,7 +46,7 @@ export function Header(){
         ?
           <ButtonHeader title="Add Dish" link="/new"/>
         :
-        <ButtonHeader icon={CiReceipt} title="Cart (0)"/>
+        <ButtonHeader  title="Cart (0)"/>
       }
       <ButtonText icon={FiLogOut} onClick={handleSignOut}/>
     </Container>

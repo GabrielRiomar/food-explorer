@@ -3,10 +3,9 @@ import { Container, Content } from './styles'
 //Import useState
 import { useState, useFavorite } from 'react'
 //Import components
-import { Button } from '../Button'
 import { AddCart } from '../AddCart'
 //Import icons
-import { AiOutlinePlus, AiOutlineMinus, AiFillHeart, AiOutlineHeart, AiOutlineEdit, AiOutlineRight } from 'react-icons/ai'
+import { AiFillHeart, AiOutlineHeart, AiOutlineEdit } from 'react-icons/ai'
 import {CgDetailsMore} from 'react-icons/cg'
 import imagePlaceholder from '../../assets/error-img/no_image_defaut.svg';
 import { useAuth } from '../../hooks/auth'
@@ -17,33 +16,18 @@ import { Link } from 'react-router-dom'
 export function CardProfile({title, data, ...rest}){
   const { user } = useAuth()
 
-  // const imageURL = data.image ? `${api.defaults.baseURL}/files/${data.image}` : imagePlaceholder;
+  const imageURL =  imagePlaceholder;
 
-  const [quantity, setQuantity] = useState(1)
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleFavoriteClick = () => {
     setIsFavorite((prevIsFavorite) => !prevIsFavorite);
   };
 
-  const plusQuantity = () => {
-    if (quantity > 9) {
-      alert("Limit of 10 per inclusion")
-      return;
-    }
-      setQuantity(count => count + 1);
-  };
-
-  const minusQuantity = () => {
-    if (quantity < 2) {
-      alert("At least one item")
-      return;
-    }
-      setQuantity(count => count - 1);
-  };
+  
 
   return(
-    <Container>
+    <Container {...rest}>
       {
         user.isAdmin ?
 
@@ -51,26 +35,37 @@ export function CardProfile({title, data, ...rest}){
           <button 
             className="svgButton"
           >
-            <Link to='/edit'>
+            <Link to={`/edit/`}>
               <AiOutlineEdit/>
             </Link>
           </button>
-        <div className='cardData'>
-          <img src={imagePlaceholder} alt="Plate Preview" />
-          
-          
-            <div className='teste'>
-            <Link to={`/details`}>
-              <h2>
-                {title}
-                <CgDetailsMore/> 
-              </h2>
-            </Link>
-            <p>Alguma descrição medianamente longa para esse prato</p>
+          <div className='cardData'>
+            <img src={imageURL} alt="Plate Preview" />
+              <div className='teste'>
+              <Link to={`/details/`}>
+                <h2>
+                  {/* {data.name} */}
+                  {title}
+                  <CgDetailsMore/> 
+                </h2>
+              </Link>
+              <p>
+                {/* {data.description} */}
+                placeholder description
+              </p>
 
-            <h1>R$ 10,00</h1>
-            </div>
-        </div>
+              <h1>
+              R$ 99,99
+                {/* R$ {
+                    data.price.toLocaleString('pt-BR', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2
+                      })
+                    } */}
+              </h1>
+
+              </div>
+          </div>
       </Content> 
         
         :
@@ -87,30 +82,30 @@ export function CardProfile({title, data, ...rest}){
         
         
           <div className='teste'>
-          <h2>{title}</h2>
+          <h2>
+                  {data.name}
+                  {title}
+                  
+                </h2>
 
-          <p>Alguma descrição medianamente longa para esse prato</p>
+          <p>
+                {/* {data.description} */}
+                placeholder description
+              </p>
 
-          <h1>R$ 10,00</h1>
+          <h1>
+              R$ 99,99
+                {/* R$ {
+                    data.price.toLocaleString('pt-BR', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2
+                      })
+                    } */}
+              </h1>
+              
           </div>
         
         <AddCart/>
-        
-        {/* <AddCart>
-          <ButtonText 
-            icon={AiOutlineMinus}
-            onClick={minusQuantity}
-          />
-          
-          <span>{quantity.toString().padStart(2, '0')}</span>
-          
-          <ButtonText
-            icon={AiOutlinePlus}
-            onClick={plusQuantity}
-          />
-          
-          <Button title='Add to Cart'/>
-        </AddCart> */}
       </div>
       </Content> 
       } 

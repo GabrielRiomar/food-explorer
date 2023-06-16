@@ -24,7 +24,7 @@ export function NewDish(){
   const { user } = useAuth()
 
   const [image, setImage] = useState(null);
-  // const [imageName, setImageName] = useState('');
+  const [imageName, setImageName] = useState('');
 
   const [name, setName] = useState('')
   const [category, setCategory] = useState("");
@@ -41,12 +41,26 @@ export function NewDish(){
     navigate(-1)
   }
 
-  function handleImageChange(e) {
-    const file = e.target.files[0];
+  // function handleImageChange(e) {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     setImage(file.name);
+  //   }
+  // };
+
+  function handleImageChange(file) {
     if (file) {
-      setImage(file.name);
+        let fileName = file.name.slice(0, 16)
+
+        if (file.name.length > 16) {
+            const fileExtension = file.name.split('.').pop()
+            fileName += `.${fileExtension}`
+        }
+
+        setImage(file)
+        setImageName(fileName)
     }
-  };
+}
 
   function handleAddIngredient() {
     if (newIngredient.trim() !== '') {
@@ -60,6 +74,9 @@ export function NewDish(){
   }
 
   async function handleNewDish(){
+    if (!image) {
+      return alert('No image selected')
+    }
     if(!name){
       return alert("Field dish name in blank")
     }
@@ -90,17 +107,17 @@ export function NewDish(){
   formData.append("description", description);
 
   ingredients.map(ingredient => (
-    formData.append("ingredients", ingredient)
+    formData.append(`ingredients`, ingredient)
   ))
   
   await api
-    .post("/manager", formData)
+    .post("/dishes", formData)
     .then(alert("Dish added successfully!"), navigate(-1))
     .catch((error) => {
       if (error.response) {
         alert(error.response.data.message);
       } else {
-        alert("Erro ao criar o prato!");
+        alert("Error on dish creation");
       }
     });  
     setLoading(false);
@@ -128,14 +145,14 @@ export function NewDish(){
               <p>Dish Image</p>
               <label htmlFor="image">
                 <FiUpload size={24}/> 
-                {image ? image : 'Select Image'}
+                {image ? imageName : 'Select Image'}
               </label>
               <Input 
                 type="file"
                 id="image" 
                 name="image"
                 accept="image/*" 
-                onChange={handleImageChange}
+                onChange={e => handleImageChange(e.target.files[0])}
               />
             </div>
 
