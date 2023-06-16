@@ -83,10 +83,9 @@ export function CardProfile({title, data, ...rest}){
         
           <div className='teste'>
           <h2>
-                  {data.name}
-                  {title}
-                  
-                </h2>
+          {/* {data.name} */}
+          {title}
+          </h2>
 
           <p>
                 {/* {data.description} */}
