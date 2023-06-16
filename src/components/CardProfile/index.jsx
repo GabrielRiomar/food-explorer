@@ -17,6 +17,7 @@ export function CardProfile({title, data, ...rest}){
   const { user } = useAuth()
 
   const imageURL =  imagePlaceholder;
+  // const imageURL = data.image ? `${api.defaults.baseURL}/files/${data.image}` : imagePlaceholder
 
   const [isFavorite, setIsFavorite] = useState(false);
 
