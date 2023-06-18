@@ -51,12 +51,12 @@ export function CardProfile({ data, ...rest }){
               </p>
 
               <h1>
-                {data?.price.toLocaleString('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                  })
+                {data && 
+                  `R$ ${data.price.toLocaleString('pt-BR', {
+                    currency: 'BRL',
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}`
                 }
               </h1>
 
@@ -90,12 +90,12 @@ export function CardProfile({ data, ...rest }){
           </p>
 
           <h1>
-            {data?.price.toLocaleString('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-              })
+            {data && 
+              `R$ ${data.price.toLocaleString('pt-BR', {
+                currency: 'BRL',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}`
             }
           </h1>
 

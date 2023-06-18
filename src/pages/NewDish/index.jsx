@@ -201,7 +201,9 @@ export function NewDish(){
             <p>Price</p>
             <Input
               placeholder="R$ 00,00"
-              type="number"
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
               onChange={e => setPrice(e.target.value)}
             />
           </div>

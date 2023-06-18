@@ -244,10 +244,15 @@ export function EditDish(){
             <p>Price</p>
             <Input
               placeholder="R$ 00,00"
-              type="number"
-              value={price}
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              value={price ? parseFloat(price).toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }) : ""}
               onChange={e => setPrice(e.target.value)}
-            />
+/>
           </div>
           </div>
           

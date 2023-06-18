@@ -45,8 +45,8 @@ export function Home(){
             </section>
   
           <section className='menu'>
-            {/* {
-              dishes.filter(dish => dish.category == 'dishes').length > 0 && */}
+            {
+              dishes.filter(dish => dish.category == 'dishes').length > 0 &&
                 <CardSlider title="Dishes">
                   <SwiperSlide>
                   {
@@ -59,34 +59,39 @@ export function Home(){
                   }
                   </SwiperSlide>
                 </CardSlider>
-            {/* } */}
+            }
 
-            <CardSlider title="Drinks">
-              <SwiperSlide>
-                <CardProfile title="Drink Name"/>
-              </SwiperSlide>
-              <SwiperSlide>
-                <CardProfile title="Drink Name"/>
-              </SwiperSlide>
-              <SwiperSlide>
-                <CardProfile title="Drink Name"/>
-              </SwiperSlide>
-              <SwiperSlide>
-                <CardProfile title="Drink Name"/>
-              </SwiperSlide>
-            </CardSlider>
+            {
+              dishes.filter(dish => dish.category == 'drinks').length > 0 &&
+                <CardSlider title="Drinks">
+                  <SwiperSlide>
+                    {
+                      dishes.filter(dish => dish.category == "drinks").map((dish) => (
+                        <CardProfile
+                          key={String(dish.id)}
+                          data={dish}
+                        />
+                        ))
+                    }
+                  </SwiperSlide>
+                </CardSlider>
+            }
 
-            <CardSlider title="Desserts">
-              <SwiperSlide>
-                <CardProfile title="Dessert Name"/>
-              </SwiperSlide>
-              <SwiperSlide>
-                <CardProfile title="Dessert Name"/>
-              </SwiperSlide>
-              <SwiperSlide>
-                <CardProfile title="Dessert Name"/>
-              </SwiperSlide>
-            </CardSlider>
+            {
+              dishes.filter(dish => dish.category == 'desserts').length > 0 &&
+                <CardSlider title="Desserts">
+                  <SwiperSlide>
+                    {
+                      dishes.filter(dish => dish.category == "desserts").map((dish) => (
+                        <CardProfile
+                          key={String(dish.id)}
+                          data={dish}
+                        />
+                        ))
+                    }
+                  </SwiperSlide>
+                </CardSlider>
+            }
           </section>
         </Content>
 

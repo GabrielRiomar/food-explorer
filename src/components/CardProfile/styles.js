@@ -50,8 +50,12 @@ export const Content = styled.div`
       font-size: 1.4rem;
       color: ${({ theme }) => theme.COLORS.GRAY_100};
 
-      margin-bottom: 1.5rem;
-      /* height: 3.4rem; */
+      max-height: 4.4rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
 
     h1 {
