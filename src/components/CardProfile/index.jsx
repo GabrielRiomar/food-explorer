@@ -13,19 +13,16 @@ import { api } from '../../services/api';
 import { Link } from 'react-router-dom'
 
 
-export function CardProfile({title, data, ...rest}){
+export function CardProfile({ data, ...rest }){
   const { user } = useAuth()
 
-  const imageURL =  imagePlaceholder;
-  // const imageURL = data.image ? `${api.defaults.baseURL}/files/${data.image}` : imagePlaceholder
+  const imageURL = data?.image ? `${api.defaults.baseURL}/files/${data.image}` : imagePlaceholder
 
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleFavoriteClick = () => {
     setIsFavorite((prevIsFavorite) => !prevIsFavorite);
   };
-
-  
 
   return(
     <Container {...rest}>
@@ -36,33 +33,31 @@ export function CardProfile({title, data, ...rest}){
           <button 
             className="svgButton"
           >
-            <Link to={`/edit/`}>
+            <Link to={`/edit/${data?.id}`}>
               <AiOutlineEdit/>
             </Link>
           </button>
           <div className='cardData'>
             <img src={imageURL} alt="Plate Preview" />
               <div className='teste'>
-              <Link to={`/details/`}>
+              <Link to={`/details/${data?.id}`}>
                 <h2>
-                  {/* {data.name} */}
-                  {title}
+                  {data?.name}
                   <CgDetailsMore/> 
                 </h2>
               </Link>
               <p>
-                {/* {data.description} */}
-                placeholder description
+                {data?.description}
               </p>
 
               <h1>
-              R$ 99,99
-                {/* R$ {
-                    data.price.toLocaleString('pt-BR', {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2
-                      })
-                    } */}
+                {data?.price.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                  })
+                }
               </h1>
 
               </div>
@@ -79,30 +74,31 @@ export function CardProfile({title, data, ...rest}){
         {isFavorite ? <AiFillHeart color="#750310" /> : <AiOutlineHeart />}
       </button>
       <div className='cardData'>
-        <img src={imagePlaceholder} alt="Plate Preview" />
-        
+        <img src={imageURL} alt="Plate Preview" />
         
           <div className='teste'>
-          <h2>
-          {/* {data.name} */}
-          {title}
-          </h2>
+            
+          <Link to={`/details/${data?.id}`}>
+            <h2>
+              {data?.name}
+              <CgDetailsMore/> 
+            </h2>
+          </Link>
 
           <p>
-                {/* {data.description} */}
-                placeholder description
-              </p>
+            {data?.description}
+          </p>
 
           <h1>
-              R$ 99,99
-                {/* R$ {
-                    data.price.toLocaleString('pt-BR', {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2
-                      })
-                    } */}
-              </h1>
-              
+            {data?.price.toLocaleString('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              })
+            }
+          </h1>
+
           </div>
         
         <AddCart/>

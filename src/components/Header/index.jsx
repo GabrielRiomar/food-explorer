@@ -15,7 +15,7 @@ import { useState } from 'react'
 
 export function Header({ search }){
   const { signOut, user } = useAuth()
-  const [cart, setCart] = useState(0)
+  // const [cart, setCart] = useState(0)
 
   const navigate = useNavigate()
 

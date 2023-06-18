@@ -11,7 +11,6 @@ export const Container = styled.footer`
   align-items: center;
   justify-content: space-between;
   padding: 2.4rem 12.3rem;
-  margin: 0 auto;
 `
 
 export const Brand = styled.div`
