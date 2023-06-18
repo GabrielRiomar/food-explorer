@@ -38,15 +38,8 @@ export function NewDish(){
   const navigate = useNavigate()
 
   function handleBack(){
-    navigate(-1)
+    navigate('/')
   }
-
-  // function handleImageChange(e) {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     setImage(file.name);
-  //   }
-  // };
 
   function handleImageChange(file) {
     if (file) {

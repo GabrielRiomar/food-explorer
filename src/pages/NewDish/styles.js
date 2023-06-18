@@ -186,7 +186,6 @@ export const Form = styled.form`
       padding: 0.8rem;
       margin-bottom: 0;
       border-radius: 0.8rem;
-      border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     }
 
     .ingredientsPricing {
