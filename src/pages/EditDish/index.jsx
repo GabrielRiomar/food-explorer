@@ -23,7 +23,7 @@ import imagePlaceholder from '../../assets/error-img/no_image_defaut.svg';
 export function EditDish(){
   const navigate = useNavigate()
   const { user } = useAuth()
-  const params = useParams();
+  const {id} = useParams();
 
   const[data, setData] = useState(null)
 
@@ -105,7 +105,7 @@ export function EditDish(){
     formData.append("ingredients", ingredient)
   ))
   
-  await api.put(`/dishes/${params.id}`, formData).then(alert("Dish updated!"), navigate(-1)).catch((error) => {
+  await api.put(`/dishes/${id}`, formData).then(alert("Dish updated!"), navigate(-1)).catch((error) => {
       if (error.response) {
         alert(error.response.data.message);
       } else {
@@ -117,7 +117,7 @@ export function EditDish(){
 
   useEffect(() => {
     async function fetchDish() {
-        const response = await api.get(`/dishes/${params.id}`);
+        const response = await api.get(`/dishes/${id}`);
 
         setData(response.data);
 
@@ -137,7 +137,7 @@ export function EditDish(){
       const isConfirmDelete = confirm("Are you sure about deleting this item");
   
       if(isConfirmDelete) {
-          await api.delete(`/dishes/${params.id}`)
+          await api.delete(`/dishes/${id}`)
           .then(() => {
               alert("Item deleted!");
               navigate(-1);

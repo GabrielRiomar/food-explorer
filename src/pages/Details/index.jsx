@@ -26,7 +26,7 @@ export function Details(){
 
   const imageURL = dish && `${api.defaults.baseURL}/files/${dish.image}`;
   
-  const params = useParams();
+  const {id} = useParams();
   
   function handleGoBack() {
     navigate(-1)
@@ -38,7 +38,7 @@ export function Details(){
     const isConfirmDelete = confirm('Are you sure about that?')
 
     if (isConfirmDelete) {
-        await api.delete(`/dishes/${params.id}`)
+        await api.delete(`/dishes/${id}`)
             .then(() => {
                 alert('Item removed with sucess!')
 
@@ -53,7 +53,7 @@ export function Details(){
 
     useEffect(() => {
       async function fetchDishDetail() {
-          const response = await api.get(`/dishes/${params.id}`)
+          const response = await api.get(`/dishes/${id}`)
           setDish(response.data)
       }
 
@@ -96,7 +96,7 @@ export function Details(){
                         disabled={loading}
                         onClick={handleRemoveDish}
                       />
-                      <Link to={`/edit/${params.id}`}>
+                      <Link to={`/edit/${id}`}>
                       {/* <Link to={`/editdish/${dish.id}`}> */}
                         <Button
                           title='Edit Dish'
