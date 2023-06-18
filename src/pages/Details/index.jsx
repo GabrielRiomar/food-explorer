@@ -4,23 +4,29 @@ import { Container, Content, DetailsInfo, Action } from './styles'
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 //Import useState
-import { useState } from "react"
-import { useNavigate, Link } from 'react-router-dom';
+import { useState, useEffect } from "react"
+import { useNavigate, Link, useParams } from 'react-router-dom';
 //Import components
 import { Header } from '../../components/Header'
 import { ButtonText } from '../../components/ButtonText'
 import { AddCart } from '../../components/AddCart'
 import { Button } from '../../components/Button'
 import { Footer } from '../../components/Footer'
+import { IngredientTag } from '../../components/IngredientTag'
 //Import icons
 import { RiArrowLeftSLine } from 'react-icons/ri'
 import imagePlaceholder from '../../assets/error-img/no_image_defaut.svg';
 
 export function Details(){
-  const { signOut, user } = useAuth()
+  const { user } = useAuth()
+
   const navigate = useNavigate()
+  const [dish, setDish] = useState(null)
   const [loading, setLoading] = useState(false)
 
+  const imageURL = dish && `${api.defaults.baseURL}/files/${dish.image}`;
+  
+  const params = useParams();
   
   function handleGoBack() {
     navigate(-1)
@@ -29,9 +35,9 @@ export function Details(){
   async function handleRemoveDish() {
     setLoading(true)
 
-    const isConfirm = confirm('Tem certeza que deseja remover este item?')
+    const isConfirmDelete = confirm('Are you sure about that?')
 
-    if (isConfirm) {
+    if (isConfirmDelete) {
         await api.delete(`/dishes/${params.id}`)
             .then(() => {
                 alert('Item removed with sucess!')
@@ -45,10 +51,21 @@ export function Details(){
     }
 }
 
+    useEffect(() => {
+      async function fetchDishDetail() {
+          const response = await api.get(`/dishes/${params.id}`)
+          setDish(response.data)
+      }
+
+      fetchDishDetail()
+    }, [])
+
   return (
     <Container>
       <Header/>
         <Content>
+          {
+          dish &&
           <DetailsInfo>
             <ButtonText
               title="Back"
@@ -56,18 +73,20 @@ export function Details(){
               onClick={handleGoBack}
             />
               <div className='description'>
-                <img src={imagePlaceholder} alt='Dish Image' />
+                <img src={imageURL} alt='Dish Image' />
                 <div>
-                  <h1>Dish Name</h1>
-                  <p>Something really long to be like a description for that plate so we can see how it looks like on the preview and measure its size</p>
-                {/* {
-                  dish.ingredients.map(ingredient => (
-                    <Ingredients
-                      key={String(ingredient.id)}
-                      title={ingredient.name}
-                    />
-                  ))
-                } */}
+                  <h1>{dish.name}</h1>
+                  <p>{dish.description}</p>
+                  {/* <div className="ingredient-tags"> */}
+                    {
+                      dish.ingredients.map(ingredient => (
+                        <IngredientTag
+                          key={String(ingredient.id)}
+                          title={ingredient.name}
+                        />
+                      ))
+                    }
+                  {/* </div> */}
                 <Action>
                   {
                     user.isAdmin ?
@@ -75,9 +94,9 @@ export function Details(){
                       <Button className='delete'
                         title={loading ? 'Deleting' : 'Delete dish'}
                         disabled={loading}
-                        // onClick={handleRemoveDish}
+                        onClick={handleRemoveDish}
                       />
-                      <Link to={`/editdish/`}>
+                      <Link to={`/edit/${params.id}`}>
                       {/* <Link to={`/editdish/${dish.id}`}> */}
                         <Button
                           title='Edit Dish'
@@ -96,6 +115,7 @@ export function Details(){
                 </div>
               </div>
           </DetailsInfo>
+          }
         </Content>
         <Footer/>
     </Container>

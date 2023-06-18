@@ -111,17 +111,10 @@ export const Form = styled.form`
       padding: 1.1rem 0.5rem;
       gap: 0.5rem;
       border-radius: 0.5rem;
-      border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 500;
+      border-radius: 50%;
       line-height: 2.4rem;
       cursor: pointer;
-    }
-
-    label:hover {
-      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
     }
   }
 
@@ -185,6 +178,7 @@ export const Form = styled.form`
 
     > .details {
       display: flex;
+      align-items: center;
     }
 
     .ingredients {
@@ -198,7 +192,6 @@ export const Form = styled.form`
       padding: 0.8rem;
       margin-bottom: 0;
       border-radius: 0.8rem;
-      border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
     }
 
     .ingredientsPricing {
@@ -217,6 +210,49 @@ export const Form = styled.form`
     .ingredients {
       gap: 1.6rem;
       padding: 0.6rem;
+    }
+  }
+`
+export const Image = styled.div`
+  position: relative;
+  margin: 0 3rem 3rem;
+
+  > img {
+    width: 18.6rem;
+    height: 18.6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid ${({ theme }) => theme.COLORS.WHITE_100};
+  }
+
+  > label {
+    width: 4.8rem;
+    height: 4.8rem;
+
+    background-color: ${({ theme }) => theme.COLORS.WHITE_100};
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 0.7rem;
+    right: 0.7rem;
+
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      color: ${({ theme }) => theme.COLORS.BACKGROUND_100};
+    }
+
+    &:hover {
+      background-color: ${({ theme }) => theme.COLORS.LOGO_COLOR};
     }
   }
 `

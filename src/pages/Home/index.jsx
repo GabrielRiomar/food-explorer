@@ -13,21 +13,22 @@ import { SwiperSlide } from "swiper/react"
 import {useState, useEffect} from 'react'
 import { api } from '../../services/api';
 
-
 export function Home(){
   const [dishes, setDishes] = useState([])
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-      async function fetchDishes() {
-          const response = await api.get(`/dishes?name=${search}`)
-          setDishes(response.data)
-          console.log(response.data)
+    async function fetchDishes() {
+      try {
+        const response = await api.get(`/dishes?name=${search}`);
+        setDishes(response.data);
+      } catch (error) {
+        console.error(error);
       }
-
-      fetchDishes()
-  }, [search])
-
+    }
+    fetchDishes();
+  }, [search]);
+  
   return(
     <Container>
       <Header search={setSearch}/>
@@ -44,12 +45,12 @@ export function Home(){
             </section>
   
           <section className='menu'>
-            {
-              dishes.filter(dish => dish.category == 'dishes').length > 0 &&
+            {/* {
+              dishes.filter(dish => dish.category == 'dishes').length > 0 && */}
                 <CardSlider title="Dishes">
                   <SwiperSlide>
                   {
-                    dishes.filter(dish => dish.category == "dishes").map(dish => (
+                    dishes.filter(dish => dish.category == "dishes").map((dish) => (
                     <CardProfile
                       key={String(dish.id)}
                       data={dish}
@@ -58,7 +59,7 @@ export function Home(){
                   }
                   </SwiperSlide>
                 </CardSlider>
-            }
+            {/* } */}
 
             <CardSlider title="Drinks">
               <SwiperSlide>

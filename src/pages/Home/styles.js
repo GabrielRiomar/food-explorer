@@ -14,11 +14,11 @@ export const Container = styled.div`
 
 export const Content = styled.main`
   grid-area: 'content';
-  /* max-width: 136.8rem; */
-
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 2.6rem 12.3rem;
+  padding: 2.6rem 12rem;
 
   .banner {
     position: relative;
@@ -68,7 +68,8 @@ export const Content = styled.main`
   .menu {
     width: 100%;
   }
-  @media (max-width: 768px) {
+
+  /* @media (max-width: 768px) {
     max-width: 70rem;
 
     .Banner {
@@ -83,5 +84,5 @@ export const Content = styled.main`
 
   @media (max-width: 425px) {
     max-width: 37rem;
-  }
+  } */
 `

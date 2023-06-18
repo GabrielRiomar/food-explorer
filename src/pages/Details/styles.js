@@ -15,7 +15,7 @@ export const Content = styled.div`
   grid-area: 'content';
   padding: 3.5rem 4rem;
   max-width: 121rem;
-  margin: 0 auto;
+  margin: 0 auto 14rem;
 `
 
 export const DetailsInfo = styled.section`
@@ -24,28 +24,35 @@ export const DetailsInfo = styled.section`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 121.2rem;
+    width: 121.2rem;
     margin: auto;
     padding: 3.5rem 4rem;
 
-    h1 {
-      font-size: clamp(2rem, 4vw, 4rem);
-      /* font-weight: 500; */
-      padding-bottom: 2.4rem;
-    }
+    /* .ingredient-tags {
+      display: flex;
+    } */
 
-    p {
-      max-width: 60rem;
-      font-size: 1.8rem;
-      line-height: 140%;
-      padding-bottom: 2.6rem;
+    div {
+      width: 70rem;
+      h1 {
+        font-size: clamp(2rem, 4vw, 4rem);
+        /* font-weight: 500; */
+        padding-bottom: 2.4rem;
+      }
+
+      p {
+        max-width: 60rem;
+        font-size: 1.8rem;
+        line-height: 140%;
+        padding-bottom: 2.6rem;
+      }
     }
 
     img {
       width: 20rem;
       height: 20rem;
-      /* border-radius: 50%;
-      object-fit: cover; */
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     @media only screen and (min-width: 768px) {
