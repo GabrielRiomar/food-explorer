@@ -6,10 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from 'swiper';
 //Import Swiper styles
 import 'swiper/css';
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export function CardSlider({ title, children }) {
   const settings = {
@@ -17,29 +15,29 @@ export function CardSlider({ title, children }) {
     loop: true,
     // loopFillGroupWithBlank: true,
     grabCursor: true,
-    breakpoints:{
-          "@0.00": {
-              slidesPerView: 1,
-              spaceBetween: 10,
-          },
-          "@0.75": {
-              slidesPerView: 2,
-              spaceBetween: 20,
-          },
-          "@1.00": {
-              slidesPerView: 3,
-              spaceBetween: 40,
-          },
-          // "@1.20": {
-          //     slidesPerView: 4,
-          //     spaceBetween: 80,
-          // },
-          }
-  }
+    breakpoints: {
+      576: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 160,
+      },
+    },
+  };
 
-  if (children.length === 1) {
-    settings.breakpoints["@0.00"].slidesPerView = 1;
-  }
+  // if (children.length === 1) {
+  //   settings.breakpoints[576].slidesPerView = 1;
+  // }  
 
   return (
       <Container>
@@ -49,7 +47,9 @@ export function CardSlider({ title, children }) {
             modules={[Navigation, Pagination]}
             {...settings}
           >
+
               {children}
+
           </Swiper>
         </Content>
       </Container>
