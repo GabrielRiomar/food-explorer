@@ -4,9 +4,8 @@ import { Container, Content, Search, Brand, Profile, ButtonMenu} from "./styles"
 import { ButtonHeader } from '../ButtonHeader'
 import { ButtonText } from '../ButtonText'
 //Import react icons
-import { FiSearch, FiLogOut, FiAlignJustify, FiUser, FiShoppingBag, FiHeart } from "react-icons/fi"
-import { AiOutlineClose } from 'react-icons/ai'
-import { RiDraftLine } from 'react-icons/ri'
+import { FiLogOut, FiUser, FiShoppingBag, FiHeart } from "react-icons/fi"
+
 //Import Hook, API and Navigate for logout function
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
@@ -22,8 +21,8 @@ export function Header({ search }){
   const navigate = useNavigate()
 
   function handleSignOut(){
-    navigate("/")
     signOut()
+    navigate("/")
   }
 
   // const { cart, orders } = useCart();
