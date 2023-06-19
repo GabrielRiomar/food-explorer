@@ -6,6 +6,7 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: space-around;
 
   animation: fadeIn 0.8s;
@@ -45,6 +46,29 @@ export const Container = styled.div`
     100% {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+  @media only screen and (max-width: 767px) {
+    justify-content: center;
+
+    > div {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    > div > h1 {
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+
+    > div > svg {
+      width: 5rem;
+      height: 5rem;
     }
   }
 `
