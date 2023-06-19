@@ -14,7 +14,6 @@ export function CardSlider({ title, children }) {
   const settings = {
     navigation: true,
     loop: true,
-    // loopFillGroupWithBlank: true,
     grabCursor: true,
     breakpoints: {
       "@0.00": {

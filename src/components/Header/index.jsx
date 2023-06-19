@@ -22,7 +22,6 @@ export function Header({ search }){
 
   function handleSignOut(){
     signOut()
-    navigate("/")
   }
 
   // const { cart, orders } = useCart();
@@ -125,6 +124,7 @@ export function Header({ search }){
         <ButtonText
           icon={FiLogOut}
           onClick={handleSignOut}
+          to={'/'}
         />
       </Content>
     </Container>
