@@ -9,7 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-around;
 
-  animation: fadeIn 0.8s;
+  animation: fadeIn 0.5s;
 
   > div {
     display: flex;
@@ -17,14 +17,14 @@ export const Container = styled.div`
     gap: 2rem;
 
     > h1 {
-      font-size: 4.2rem;
-      line-height: 5rem;
+      font-size: clamp(3rem, 3rem + 1.5vw, 4.2rem);
+      line-height: clamp(4rem, 4rem +1.5vw, 5rem);
     }
 
     > svg {
       animation: fade 6s infinite;
-      width: 7rem;
-      height: 7rem;
+      width: clamp(5rem, 5rem + 1vw, 7rem);
+      height: clamp(5rem, 5rem + 1vw, 7rem);
     }
   }
   @keyframes fade {
@@ -59,11 +59,6 @@ export const Container = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 1rem;
-    }
-
-    > div > h1 {
-      font-size: 3rem;
-      line-height: 4rem;
     }
 
     > div > svg {

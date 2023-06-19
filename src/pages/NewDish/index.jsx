@@ -37,10 +37,6 @@ export function NewDish(){
 
   const navigate = useNavigate()
 
-  function handleBack(){
-    navigate('/')
-  }
-
   function handleImageChange(file) {
     if (file) {
         let fileName = file.name.slice(0, 16)
@@ -128,7 +124,7 @@ export function NewDish(){
             <ButtonText
               icon={RiArrowLeftSLine}
               title="Back"
-              onClick={handleBack}
+              to='/'
               />
               <h1>Add Dish</h1>
           </header>
@@ -168,7 +164,7 @@ export function NewDish(){
               <option value="default" disabled>Select</option>
               <option value="dishes">Dishes</option>
               <option value="drinks">Drinks</option>
-              <option value="dessert">Desserts</option>
+              <option value="dessert">Dessert</option>
 
             </select> 
           </div>
@@ -201,9 +197,7 @@ export function NewDish(){
             <p>Price</p>
             <Input
               placeholder="R$ 00,00"
-              type="text"
-              inputMode="numeric"
-              pattern="[0-9]*"
+              type='number'
               onChange={e => setPrice(e.target.value)}
             />
           </div>
