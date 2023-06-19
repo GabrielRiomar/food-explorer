@@ -20,17 +20,14 @@ import imagePlaceholder from '../../assets/error-img/no_image_defaut.svg';
 export function Details(){
   const { user } = useAuth()
 
-  const navigate = useNavigate()
   const [dish, setDish] = useState(null)
   const [loading, setLoading] = useState(false)
-
-  const imageURL = dish && `${api.defaults.baseURL}/files/${dish.image}`;
   
-  const {id} = useParams();
+  const imageURL = dish && `${api.defaults.baseURL}/files/${dish.image}`
   
-  function handleGoBack() {
-    navigate(-1)
-  }
+  const navigate = useNavigate()
+  const params = useParams()
+  
 
   async function handleRemoveDish() {
     setLoading(true)
@@ -38,11 +35,11 @@ export function Details(){
     const isConfirmDelete = confirm('Are you sure about that?')
 
     if (isConfirmDelete) {
-        await api.delete(`/dishes/${id}`)
+        await api.delete(`/dishes/${params.id}`)
             .then(() => {
                 alert('Item removed with sucess!')
 
-                navigate(-1)
+                navigate('/')
 
                 setLoading(false)
             })
@@ -53,7 +50,7 @@ export function Details(){
 
     useEffect(() => {
       async function fetchDishDetail() {
-          const response = await api.get(`/dishes/${id}`)
+          const response = await api.get(`/dishes/${params.id}`)
           setDish(response.data)
       }
 
@@ -64,20 +61,21 @@ export function Details(){
     <Container>
       <Header/>
         <Content>
-          {
-          dish &&
+          {dish &&
           <DetailsInfo>
             <ButtonText
               title="Back"
               icon={RiArrowLeftSLine}
-              onClick={handleGoBack}
+              to='/'
             />
               <div className='description'>
-                <img src={imageURL} alt='Dish Image' />
+                <img src={imageURL ? imageURL : imagePlaceholder} alt='Dish Image' />
                 <div>
+
                   <h1>{dish.name}</h1>
+
                   <p>{dish.description}</p>
-                  {/* <div className="ingredient-tags"> */}
+
                     {
                       dish.ingredients.map(ingredient => (
                         <IngredientTag
@@ -86,7 +84,7 @@ export function Details(){
                         />
                       ))
                     }
-                  {/* </div> */}
+
                 <Action>
                   {
                     user.isAdmin ?
@@ -96,8 +94,8 @@ export function Details(){
                         disabled={loading}
                         onClick={handleRemoveDish}
                       />
-                      <Link to={`/edit/${id}`}>
-                      {/* <Link to={`/editdish/${dish.id}`}> */}
+
+                      <Link to={`/edit/${params.id}`}>
                         <Button
                           title='Edit Dish'
                         />

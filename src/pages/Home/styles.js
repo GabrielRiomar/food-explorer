@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
+  min-width: 35rem;
   height: 100vh;
 
   display: grid;
@@ -15,10 +16,10 @@ export const Container = styled.div`
 export const Content = styled.main`
   grid-area: 'content';
   width: 100%;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  padding: 2.6rem 12rem;
+  padding: 3.6rem 12rem;
 
   .banner {
     position: relative;
@@ -34,55 +35,54 @@ export const Content = styled.main`
 
     .background {
       width: 100%;
-      /* prestar atenção aqui */
       height: 26rem;
       margin-top: 16.4rem;
 
       position: relative;
 
-      background: linear-gradient(180deg, #091e26 0%, #00131c 100%);
+      background-color: rgba(9, 30, 38, 0.8); /* Cor com transparência */
 
       border: 1px solid #000000;
       border-radius: 0.8rem;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       .title {
         position: absolute;
-        top: 8.7rem;
-        left: 59.7rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
         h2 {
-          font-size: 4rem;
+          font-size: clamp(1rem, 6vw, 4rem);
           line-height: 5.6rem;
           font-weight: 500;
         }
 
         span {
-          font-size: 1.6rem;
+          font-size: clamp(1rem, 2.5vw, 1.6rem);
           line-height: 2.2rem;
           font-weight: 400;
         }
       }
     }
   }
-  .menu {
-    width: 100%;
-  }
 
-  /* @media (max-width: 768px) {
-    max-width: 70rem;
+  @media (max-width: 768px) {
+    .banner {
+      img {
+        display: none;
+      }
 
-    .Banner {
-      display: none;
+      .background {
+        margin-top: 3.2rem;
+      }
     }
-
-    .CardWrapper {
-      gap: 2rem;
-      max-width: 70rem;
+    .menu {
+      width: 60rem;
     }
   }
-
-  @media (max-width: 425px) {
-    max-width: 37rem;
-  } */
 `

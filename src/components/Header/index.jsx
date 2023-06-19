@@ -1,16 +1,18 @@
 //Import styles
-import { Container, Search, Brand} from "./styles";
+import { Container, Content, Search, Brand, Profile, ButtonMenu} from "./styles";
 //Import components
 import { ButtonHeader } from '../ButtonHeader'
 import { ButtonText } from '../ButtonText'
 //Import react icons
-import { FiSearch, FiLogOut } from "react-icons/fi"
-import { CiReceipt } from 'react-icons/ci'
+import { FiSearch, FiLogOut, FiAlignJustify, FiUser, FiShoppingBag, FiHeart } from "react-icons/fi"
+import { AiOutlineClose } from 'react-icons/ai'
+import { RiDraftLine } from 'react-icons/ri'
 //Import Hook, API and Navigate for logout function
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
-import { useNavigate } from 'react-router-dom';
-import Icon from '../../assets/images/icon.svg'
+import { useNavigate, Link } from 'react-router-dom';
+import Logo from '../../assets/images/logoUser.svg'
+import LogoAdmin from '../../assets/images/logoAdmin.svg'
 import { useState } from 'react'
 
 export function Header({ search }){
@@ -24,31 +26,108 @@ export function Header({ search }){
     signOut()
   }
 
+  // const { cart, orders } = useCart();
+    
+    function mobileMenu() {
+        document.getElementById('hamburger').classList.toggle('active')
+        document.getElementById('nav-menu').classList.toggle('active')
+    }
+
+    function userMenu() {
+        document.getElementById('user-menu').classList.toggle('active')
+    }
+
   return(
     <Container>
-      <Brand to={"/"}>
-        <img src={Icon} alt="Icone Food Explorer" />
-        <h2>food explorer</h2>
-      </Brand>
-      <Search>
-        {<FiSearch size={20}/>}
-        <input 
-          type="search"
-          name="search"
-          id="search"
-          placeholder="Search"
-          onChange={e => { search(e.target.value) }}
-        >
-        </input>
-      </Search>
-      {
-        user.isAdmin
-        ?
-          <ButtonHeader title="Add Dish" link="/new"/>
-        :
-        <ButtonHeader  title="Cart (0)"/>
-      }
-      <ButtonText icon={FiLogOut} onClick={handleSignOut}/>
+      <Content>
+        <Brand to={"/"}>
+        {user.isAdmin
+          ?
+          <div className="logo">
+          <img src={LogoAdmin} alt="Icone Food Explorer" />
+          </div>
+          :
+          <div className="logo">
+          <img src={Logo} alt="Icone Food Explorer" />
+          </div>
+        }
+        </Brand>
+
+        <div className="hamburger" id="hamburger" onClick={mobileMenu}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
+
+        <div className="nav-menu" id="nav-menu"></div>
+
+        <Search>
+          <input 
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search"
+            autocomplete='off'
+            className="search"
+            onChange={e => { search(e.target.value) }}
+          >
+          </input>
+        </Search>
+
+        {user.isAdmin
+          ?
+            <ButtonHeader
+              title="Add Dish"
+              link="/new"
+            />
+          :
+            <ButtonHeader
+              title="Cart (0)"
+            />
+        }
+        
+
+        {user.isAdmin
+          ?
+            <Link to="/profile">
+              <Profile>
+                <FiUser />
+              </Profile>
+            </Link>
+
+          :
+
+            <Profile onClick={userMenu}>
+              <FiUser />
+                <div className="user-menu" id="user-menu">
+                  <Link to="/orders">
+                    <ButtonMenu>
+                      <FiShoppingBag size={24}/>
+                        My Orders
+                    </ButtonMenu>
+                  </Link>
+
+                  <Link to="/">
+                    <ButtonMenu>
+                      <FiHeart size={24}/>
+                        My Favorites
+                      </ButtonMenu>
+                  </Link>
+
+                  <Link to="/profile">
+                    <ButtonMenu>
+                      <FiUser size={24}/>
+                        My Profile
+                    </ButtonMenu>
+                  </Link>
+                </div>
+            </Profile>
+        }
+        <ButtonText
+          icon={FiLogOut}
+          onClick={handleSignOut}
+        />
+      </Content>
     </Container>
   )
 }

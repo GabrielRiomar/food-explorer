@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
+  min-width: 32rem;
   height: 100vh;
+  min-height: 100%;
 
   display: grid;
   grid-template-rows: 105px auto;
@@ -10,12 +12,6 @@ export const Container = styled.div`
     'header'
     'content'
     'footer';
-
-  .tags {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
 `
 
 export const Content = styled.div`
@@ -33,14 +29,6 @@ export const Content = styled.div`
     display: flex;
     justify-content: center;
     margin-top: 3.2rem;
-  }
-
-  @media only screen and (max-width: 768px) {
-    padding: 2rem;
-
-    .button {
-      margin-top: 2rem;
-    }
   }
 `
 
@@ -75,6 +63,7 @@ export const Form = styled.form`
   }
 
   .name {
+    min-width: 46rem;
     flex-grow: 1;
   }
 
@@ -83,7 +72,7 @@ export const Form = styled.form`
     border-radius: 0.5rem;
     border: none;
     height: 4.8rem;
-    width: 36.4rem;
+    width: 100%;
     padding: 1.2rem;
     font-size: 1.6rem;
     line-height: 2.6rem;
@@ -99,7 +88,11 @@ export const Form = styled.form`
   }
 
   .dishImage {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 25rem;
 
     input[type='file'] {
       display: none;
@@ -162,6 +155,34 @@ export const Form = styled.form`
     }
   }
 
+  @media only screen and (max-width: 768px) {
+    .details {
+      grid-template-columns: 1fr;
+      grid-gap: 2.4rem;
+    }
+
+    .dishImage {
+      width: 100%;
+    }
+
+    .name {
+      width: 100%;
+    }
+
+    .category {
+      width: 100%;
+    }
+
+    .ingredientsPricing {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price {
+      width: 100%;
+    }
+  }
+
   @media only screen and (min-width: 768px) {
     h1 {
       text-align: left;
@@ -186,11 +207,12 @@ export const Form = styled.form`
       flex-wrap: wrap;
       align-content: center;
 
-      width: 100%;
       max-width: 83.7rem;
+      width: 100%;
       height: auto;
       padding: 0.8rem;
       margin-bottom: 0;
+
       border-radius: 0.8rem;
     }
 
@@ -201,15 +223,8 @@ export const Form = styled.form`
     }
 
     .price {
-      max-width: 25.1rem;
+      min-width: 25.1rem;
       width: 100%;
-    }
-  }
-
-  @media only screen and (max-width: 480px) {
-    .ingredients {
-      gap: 1.6rem;
-      padding: 0.6rem;
     }
   }
 `

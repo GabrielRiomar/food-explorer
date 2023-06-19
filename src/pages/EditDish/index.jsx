@@ -21,31 +21,26 @@ import imagePlaceholder from '../../assets/error-img/no_image_defaut.svg';
 
 
 export function EditDish(){
-  const navigate = useNavigate()
   const { user } = useAuth()
-  const {id} = useParams();
-
+  const { id } = useParams();
+  
   const[data, setData] = useState(null)
-
+  
   const imageURL = data && `${api.defaults.baseURL}/files/${data.image}`;
   const [image, setImage] = useState(null);
   const [imageFile, setImageFile] = useState(null)
-
+  
   const [name, setName] = useState("")
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("")
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState("")
   const [description, setDescription] = useState("")
-
+  
   const [loading, setLoading] = useState(false);
   const [loadingDelete, setLoadingDelete] = useState(false);
-
   
-
-  function handleBack(){
-    navigate('/')
-  }
+  const navigate = useNavigate()
 
   function handleImageChange(event) {
       const file = event.target.files[0];
@@ -67,6 +62,10 @@ export function EditDish(){
   }
 
   async function handleUpdateDish(){
+    if(!image){
+      return alert("Insert an image")
+    }
+
     if(!name){
       return alert("Field dish name in blank")
     }
@@ -132,7 +131,7 @@ export function EditDish(){
     fetchDish();
     }, [])
 
-    async function handleDeleteDish() {
+  async function handleDeleteDish() {
       setLoadingDelete(true);
       const isConfirmDelete = confirm("Are you sure about deleting this item");
   
@@ -140,11 +139,11 @@ export function EditDish(){
           await api.delete(`/dishes/${id}`)
           .then(() => {
               alert("Item deleted!");
-              navigate(-1);
+              navigate('/');
               setLoadingDelete(false);
           })
       } else {
-          return
+        return
       }
   }
 
@@ -159,10 +158,10 @@ export function EditDish(){
         
         <Form>
           <header>
-            <ButtonText
-              icon={RiArrowLeftSLine}
+          <ButtonText
               title="Back"
-              onClick={handleBack}
+              icon={RiArrowLeftSLine}
+              to='/'
             />
               <h1>Edit Dish</h1>
           </header>
@@ -211,7 +210,7 @@ export function EditDish(){
 
               <option value="dishes">Dishes</option>
               <option value="drinks">Drinks</option>
-              <option value="dessert">Desserts</option>
+              <option value="dessert">Dessert</option>
 
             </select> 
           </div>
@@ -244,15 +243,10 @@ export function EditDish(){
             <p>Price</p>
             <Input
               placeholder="R$ 00,00"
-              type="text"
-              inputMode="numeric"
-              pattern="[0-9]*"
-              value={price ? parseFloat(price).toLocaleString('pt-BR', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              }) : ""}
+              type="number"
+              value={price}
               onChange={e => setPrice(e.target.value)}
-/>
+            />
           </div>
           </div>
           
@@ -278,6 +272,7 @@ export function EditDish(){
         />
         </div>
         </Form>
+
         }
       </Content>
       
