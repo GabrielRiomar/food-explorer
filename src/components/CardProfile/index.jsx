@@ -33,19 +33,22 @@ export function CardProfile({ data, ...rest }){
           <button 
             className="svgButton"
           >
-            <Link to={`/edit/${data?.id}`}>
+            <Link to={`/edit/${data.id}`}>
               <AiOutlineEdit/>
             </Link>
           </button>
           <div className='cardData'>
             <img src={imageURL} alt="Plate Preview" />
+
               <div className='teste'>
-              <Link to={`/details/${data?.id}`}>
+
+              <Link to={`/details/${data.id}`}>
                 <h2>
                   {data?.name}
                   <CgDetailsMore/> 
                 </h2>
               </Link>
+              
               <p>
                 {data?.description}
               </p>

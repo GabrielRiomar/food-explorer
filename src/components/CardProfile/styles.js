@@ -20,13 +20,14 @@ export const Content = styled.div`
   .svgButton {
     position: absolute;
     top: 1.2rem;
-    right: 2rem;
+    right: 1rem;
 
     font-size: 3rem;
     border: none;
     background: transparent;
     color: ${({ theme }) => theme.COLORS.WHITE_100};
   }
+
   .cardData {
     display: grid;
     padding: 2.4rem 2.4rem 4.6rem;

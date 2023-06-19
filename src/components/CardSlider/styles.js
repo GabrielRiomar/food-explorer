@@ -2,22 +2,23 @@ import styled from 'styled-components'
 
 export const Container = styled.footer`
   width: 100%;
-  margin: 0 auto;
-
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-
+  align-items: center;
   margin-bottom: 6.2rem;
-  gap: 2.3rem;
-  font-size: 3.2rem;
+
+  @keyframes scale-up-center {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
 `
 
 export const Content = styled.div`
-  height: 100%;
-  max-width: 166rem;
-
-  /* background-color: gray; */
+  width: 166rem;
 
   .swiper {
     width: 100%;
@@ -37,6 +38,7 @@ export const Content = styled.div`
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+    gap: 3.2rem;
   }
 
   .swiper-button-next,

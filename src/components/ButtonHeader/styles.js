@@ -5,7 +5,8 @@ export const Container = styled(Link)`
   background-color: ${({ theme }) => theme.COLORS.BUTTON};
   color: ${({ theme }) => theme.COLORS.WHITE_100};
 
-  width: 21.6rem;
+  width: 100%;
+  max-width: 21.6rem;
   height: 5.6rem;
 
   border-radius: 0.5rem;
@@ -23,5 +24,9 @@ export const Container = styled(Link)`
   > svg {
     width: 2.6rem;
     height: 2.2rem;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 21.6rem;
   }
 `
