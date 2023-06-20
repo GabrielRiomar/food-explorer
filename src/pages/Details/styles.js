@@ -4,7 +4,6 @@ export const Container = styled.div`
   max-width: 100%;
   height: 100vh;
   display: grid;
-  /* grid-template-rows: 10rem auto; */
   grid-template-areas:
     'header'
     'content'
@@ -28,15 +27,10 @@ export const DetailsInfo = styled.section`
     margin: auto;
     padding: 3.5rem 4rem;
 
-    /* .ingredient-tags {
-      display: flex;
-    } */
-
     div {
       width: 70rem;
       h1 {
         font-size: clamp(2rem, 4vw, 4rem);
-        /* font-weight: 500; */
         padding-bottom: 2.4rem;
       }
 
@@ -63,10 +57,8 @@ export const DetailsInfo = styled.section`
       gap: 2.4rem;
 
       img {
-        width: 40rem;
-        height: 40rem;
-        /* border-radius: 50%;
-        object-fit: cover; */
+        width: 60rem;
+        height: 60rem;
       }
     }
   }

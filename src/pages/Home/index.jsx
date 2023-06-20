@@ -56,6 +56,7 @@ export function Home(){
             </section>
   
           <section className='menu'>
+            <h1>Dishes</h1>
             {
               dishes.filter(dish => dish.category == 'dishes').length > 0 &&
                 <CardSlider>
@@ -70,7 +71,7 @@ export function Home(){
                   }
                 </CardSlider>
             }
-
+            <h1>Drinks</h1>
             {
               dishes.filter(dish => dish.category == 'drinks').length > 0 &&
                 <CardSlider>
@@ -85,8 +86,8 @@ export function Home(){
                     }
                 </CardSlider>
             }
-
-{
+            <h1>Desserts</h1>
+            {
               dishes.filter(dish => dish.category == 'dessert').length > 0 &&
                 <CardSlider>
                     {

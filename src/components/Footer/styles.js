@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.footer`
   grid-area: 'footer';
-  height: 7.7rem;
+  height: 8rem;
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_HEADER};
   border: 2px solid transparent;

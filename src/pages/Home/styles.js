@@ -71,6 +71,16 @@ export const Content = styled.main`
     }
   }
 
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-size: clamp(2rem, 2rem + 1vw, 3.2rem);
+    }
+  }
+
   @media (max-width: 768px) {
     .banner {
       img {

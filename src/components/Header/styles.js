@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.header`
   grid-area: 'header';
-  height: 13rem;
+  height: 13.68rem;
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_HEADER};
   border: 2px solid transparent;
@@ -101,7 +101,7 @@ export const Content = styled.div`
 
       transition: 0.3s;
 
-      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
+      backdrop-filter: blur(1rem);
       box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     }
 
@@ -151,8 +151,8 @@ export const Brand = styled(Link)`
   font-weight: 700;
 
   > img {
-    width: 50rem;
-    height: 5rem;
+    width: 30rem;
+    height: 7rem;
     transition: filter 0.3s ease-in-out;
   }
 
@@ -163,22 +163,22 @@ export const Brand = styled(Link)`
   @keyframes fadeIn {
     0% {
       opacity: 0;
-      transform: scale(0.9);
+      transform: scale(1);
     }
     100% {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1.2);
     }
   }
 
   @keyframes fadeIn {
     0% {
       opacity: 0;
-      transform: scale(0.9);
+      transform: scale(1);
     }
     100% {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1.2);
     }
   }
 
