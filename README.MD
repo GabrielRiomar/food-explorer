@@ -8,7 +8,7 @@ Food Explorer is a web application developed using technologies such as React.js
 
 The administrator has access to create, edit, and delete dishes. New users need to register in order to use the services available on the platform.
 
-## Techonologies
+## Technologies
 
 - axios
 - react

@@ -16,7 +16,7 @@ export function SignIn(){
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { signIn } = useAuth()
+  const { signIn, loading } = useAuth()
 
   function handleSignIn(){
     signIn({ email, password })
@@ -57,6 +57,7 @@ export function SignIn(){
           <Button 
             title="Sign-in"
             onClick={handleSignIn}
+            disabled={loading}
           />
             
           <Link to='/register'>

@@ -266,7 +266,7 @@ export function EditDish(){
         />
         <Button
           className="delete" 
-          title={loading ? "Deleting" : "Delete"}
+          title={loadingDelete ? "Deleting" : "Delete"}
           disabled={loading}
           onClick={handleDeleteDish}
         />

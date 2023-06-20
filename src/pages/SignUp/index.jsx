@@ -13,6 +13,8 @@ export function SignUp(){
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const[loading, setLoading]= useState(false)
+
   const navigate = useNavigate()
 
   function handleSignUp(){
@@ -20,7 +22,7 @@ export function SignUp(){
     if(!name || !email || !password){
       return alert('Fill all the fields!')
     }
-
+    setLoading(true)
     api.post('/users', { name, email, password})
     .then(() => {
       alert('User successfully created')
@@ -33,6 +35,7 @@ export function SignUp(){
         alert('Failed to create user')
       }
     })
+    setLoading(false)
   }
 
   return(
