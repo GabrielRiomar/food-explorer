@@ -4,6 +4,7 @@ export const Container = styled.div`
   max-width: 100%;
   height: 100vh;
   display: grid;
+  grid-template-rows: 10.4rem auto 7.2rem;
   grid-template-areas:
     'header'
     'content'
@@ -20,8 +21,10 @@ export const Content = styled.div`
 export const DetailsInfo = styled.section`
   .description {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    gap: 2.4rem;
     width: 100%;
     width: 121.2rem;
     margin: auto;
@@ -43,22 +46,20 @@ export const DetailsInfo = styled.section`
     }
 
     img {
-      width: 20rem;
-      height: 20rem;
+      width: 60rem;
+      height: 60rem;
       border-radius: 50%;
       object-fit: cover;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (max-width: 768px) {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      gap: 2.4rem;
 
       img {
-        width: 60rem;
-        height: 60rem;
+        width: 50rem;
+        height: 50rem;
       }
     }
   }

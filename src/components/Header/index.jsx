@@ -43,6 +43,7 @@ export function Header({ search }){
           ?
           <div className="logo">
           <img src={LogoAdmin} alt="Icone Food Explorer" />
+          
           </div>
           :
           <div className="logo">
@@ -57,7 +58,7 @@ export function Header({ search }){
           <span className="bar"></span>
         </div>
 
-        <div className="nav-menu" id="nav-menu"></div>
+        <div className="nav-menu" id="nav-menu">
 
         <Search>
           <input 
@@ -126,6 +127,7 @@ export function Header({ search }){
           onClick={handleSignOut}
           to={'/'}
         />
+        </div>
       </Content>
     </Container>
   )

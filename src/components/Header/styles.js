@@ -101,7 +101,7 @@ export const Content = styled.div`
 
       transition: 0.3s;
 
-      backdrop-filter: blur(1rem);
+      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_HEADER};
       box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     }
 
